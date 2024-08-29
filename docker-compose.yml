@@ -13,6 +13,10 @@ services:
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
       - ${PWD}/docker/pgdata:/var/lib/postgresql/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "5632:5432"
 
   main:
     build:
